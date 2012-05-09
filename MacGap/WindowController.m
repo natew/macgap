@@ -1,9 +1,7 @@
 #import "WindowController.h"
 
 
-@interface WindowController() {
-
-}
+@interface WindowController()
 
 -(void) notificationCenter;
 

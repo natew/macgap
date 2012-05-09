@@ -11,7 +11,7 @@
 
 #import "WindowController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>;
 
 @property (retain, nonatomic) WindowController *windowController;
 

@@ -17,6 +17,18 @@
         [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
                                                                selector: @selector(receiveWakeNotification:) 
                                                                    name: NSWorkspaceDidWakeNotification object: NULL];
+        
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
+                                                               selector: @selector(receivePlayNotification:) 
+                                                                   name: @"playNotification" object: NULL];
+        
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
+                                                               selector: @selector(receivePrevNotification:) 
+                                                                   name: @"prevNotification" object: NULL];
+        
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
+                                                               selector: @selector(receiveNextNotification:) 
+                                                                   name: @"nextNotification" object: NULL];
     }
 
     return self;
@@ -56,6 +68,18 @@
 
 - (void) receiveWakeNotification:(NSNotification*)note{
     [JSEventHelper triggerEvent:@"wake" forWebView:self.webView];
+}
+
+- (void) receivePlayNotification:()note{
+    [JSEventHelper triggerEvent:@"play" forWebView:self.webView];
+}
+
+- (void) receiveNextNotification:()note{
+    [JSEventHelper triggerEvent:@"next" forWebView:self.webView];
+}
+
+- (void) receivePrevNotification:()note{
+    [JSEventHelper triggerEvent:@"prev" forWebView:self.webView];
 }
 
 + (NSString*) webScriptNameForSelector:(SEL)selector
